@@ -6,7 +6,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-<body class="bg-slate-100">
+<body class="bg-slate-200 dark:bg-slate-700">
     @livewire('partials.navbar')
     {{ $slot }}
     @livewire('partials.footer')
