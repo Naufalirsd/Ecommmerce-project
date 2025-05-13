@@ -5,29 +5,30 @@ namespace App\Livewire\Auth;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Illuminate\Http\Request;
 
 #[Title('Login')]
 class LoginPage extends Component
 {
-    public $email = '';
-    public $password = '';
+    public $email;
+    public $password;
 
     public function save()
     {
-        $credentials = $this->validate([
+        $this->validate([
             'email' => ['required', 'email', 'exists:users,email'],
-            'password' => ['required'],
+            'password' => ['required', 'min:8'], // Contoh: minimal 8 karakter
         ]);
 
-        if (!Auth::attempt($credentials)) {
-            $this->addError('email', 'Email or password is incorrect.');
+        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+            session()->flash('email', 'Email atau password salah.');
+            $this->addError('password', 'Email atau password salah.');
+
             return;
         }
 
-        session()->regenerate();
+        return redirect()->intended();
 
-        // ✅ Livewire 3 SPA redirect
-        return $this->redirect('/', navigate: true);
     }
 
     public function render()
