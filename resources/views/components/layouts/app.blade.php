@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ $title ?? 'PopMart' }}</title>
+    <title>{{ $title ?? 'Teknogear' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
@@ -14,6 +14,8 @@
     <script src="https://unpkg.com/preline@latest/dist/preline.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @livewireScripts
-    @livewireAlertScripts
+    <div style="display: none;">
+        @livewireAlertScripts
+    </div>
 </body>
 </html>
