@@ -43,14 +43,13 @@ class UserResource extends Resource
                     ->unique(ignoreRecord: true)
                     ->required(),
 
-                Forms\Components\DateTimePicker::make('email_verified_at')
-                    ->label('Email Verified At')
-                    ->default(now()),
-
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->dehydrated(fn($state) =>filled($state))
                     ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord),
+
+                Forms\Components\TextInput::make('phone')
+                    ->label('phone')
             ]);
     }
 
@@ -59,18 +58,20 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nama')
                     ->searchable(),
+                    
 
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
 
-                Tables\Columns\TextColumn::make('email_verified_at')
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Pendaftaran')
                     ->dateTime()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('phone')
+                    ->searchable()
             ])
             ->filters([
                 //
