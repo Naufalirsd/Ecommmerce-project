@@ -48,8 +48,6 @@ class UserResource extends Resource
                     ->dehydrated(fn($state) =>filled($state))
                     ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord),
 
-                Forms\Components\TextInput::make('phone')
-                    ->label('phone')
             ]);
     }
 
@@ -70,8 +68,6 @@ class UserResource extends Resource
                     ->dateTime()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('phone')
-                    ->searchable()
             ])
             ->filters([
                 //
