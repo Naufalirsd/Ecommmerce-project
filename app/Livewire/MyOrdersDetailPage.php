@@ -8,7 +8,7 @@ use App\Models\OrderItem;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Order Detail')]
+#[Title('Order Detail - Teknogear')]
 class MyOrdersDetailPage extends Component {
 
     public $order_id;

@@ -10,13 +10,14 @@ class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-        $categories = ['Smartphone', 'Laptop', 'Tablet', 'Smartwatch', 'Aksesoris Teknologi'];
+        $categories = ['Smartphone', 'Laptop', 'Tablet', 'Smartwatch'];
 
         foreach ($categories as $categoryName) {
-            \App\Models\Category::create([
-                'name' => $categoryName,
-                'slug' => Str::slug($categoryName),
-            ]);
+            Category::firstOrCreate(
+                ['slug' => Str::slug($categoryName)],
+                ['name' => $categoryName]
+            );
         }
     }
 }
+

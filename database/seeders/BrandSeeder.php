@@ -10,13 +10,14 @@ class BrandSeeder extends Seeder
 {
     public function run()
     {
-        $brands = ['Apple', 'Samsung', 'Xiaomi', 'Asus', 'HP', 'Lenovo', 'Garmin'];
+        $brands = ['Apple', 'Samsung', 'Xiaomi', 'Asus'];
 
         foreach ($brands as $brandName) {
-            Brand::create([
-                'name' => $brandName,
-                'slug' => Str::slug($brandName),
-            ]);
+            Brand::firstOrCreate(
+                ['slug' => Str::slug($brandName)],
+                ['name' => $brandName]
+            );
         }
     }
 }
+

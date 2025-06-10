@@ -99,21 +99,21 @@ class ProductResource extends Resource
                             ->relationship('brand', 'name')
                     ]),
 
-                    Section::make('Status')->schema([
-                        Toggle::make('in_stock')
-                            ->required()
-                            ->default(true),
+                    // Section::make('Status')->schema([
+                    //     Toggle::make('in_stock')
+                    //         ->required()
+                    //         ->default(true),
 
-                        Toggle::make('is_active')
-                            ->required()
-                            ->default(true),
+                    //     Toggle::make('is_active')
+                    //         ->required()
+                    //         ->default(true),
 
-                        Toggle::make('is_featured')
-                            ->required(),
+                    //     Toggle::make('is_featured')
+                    //         ->required(),
 
-                        Toggle::make('on_sale')
-                            ->required(),
-                    ])
+                    //     Toggle::make('on_sale')
+                    //         ->required(),
+                    // ])
                 ])->columnSpan(1)
             ])->columns(3);
     }
@@ -135,17 +135,17 @@ class ProductResource extends Resource
                     ->money('IDR')
                     ->sortable(),
 
-                IconColumn::make('is_featured')
-                    ->boolean(),
+                // IconColumn::make('is_featured')
+                //     ->boolean(),
 
-                IconColumn::make('on_sale')
-                    ->boolean(),
+                // IconColumn::make('on_sale')
+                //     ->boolean(),
                 
-                IconColumn::make('in_stock')
-                    ->boolean(),
+                // IconColumn::make('in_stock')
+                //     ->boolean(),
 
-                IconColumn::make('is_active')
-                    ->boolean(),
+                // IconColumn::make('is_active')
+                //     ->boolean(),
 
                 TextColumn::make('created_at')
                     ->dateTime()
