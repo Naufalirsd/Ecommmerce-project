@@ -65,14 +65,6 @@ class ProductsPage extends Component {
             $productQuery->whereIn('brand_id', $this->selected_brands);
         }
 
-        if($this->featured) {
-            $productQuery->where('is_featured', 1);
-        }
-
-        if($this->on_sale) {
-            $productQuery->where('on_sale', 1);
-        }
-
         if($this->price_range) {
             $productQuery->whereBetween('price', [0, $this->price_range]);
         }
